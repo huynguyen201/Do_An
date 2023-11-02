@@ -1,0 +1,644 @@
+/* Thiết lập giá trị mặc định cho tất cả phần tử */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Phần thân trang */
+body {
+    max-width: 100%; /* Giới hạn chiều rộng của trang web theo màn hình */
+    /* font-size: 15px; */ /* Lưu ý: Thông số này có thể bị tắt (được chú thích) */
+    background: #555555; /* Đặt màu nền của trang web là xám đậm (#555555) */
+    height: auto; /* Độ cao tự động */
+}
+
+/* Header (Phần tiêu đề trang) */
+.header {
+    display: flex; /* Hiển thị các phần tử con theo kiểu flexbox */
+    align-items: center; /* Căn chỉnh phần tử con theo trục dọc giữa */
+    justify-content: space-between; /* Căn chỉnh phần tử con theo trục ngang với khoảng cách giữa chúng */
+    background: #333333; /* Đặt màu nền của phần tiêu đề là màu đen (#333333) */
+    position: fixed; /* Phần tiêu đề cố định ở đầu trang */
+    top: 0; /* Vị trí cố định ở đầu trang */
+    left: 0; /* Vị trí cố định ở bên trái */
+    width: 100%; /* Chiều rộng 100% của trang */
+    z-index: 9999; /* Độ ưu tiên hiển thị trên các phần tử khác */
+}
+
+.container {
+    display: flex; /* Hiển thị các phần tử con theo kiểu flexbox */
+    padding: 10px; /* Khoảng cách giữa phần tử container và nội dung bên trong */
+}
+
+.container a img {
+    margin-left: 50px; /* Khoảng cách bên trái của hình ảnh */
+    flex: 1; /* Sử dụng một phần đều trong khoảng cách trống của phần tử container */
+}
+
+/* Menu chính */
+.main-menu {
+    flex: 2; /* Sử dụng 2 phần đều trong khoảng trống của container */
+    justify-content: flex-end; /* Căn chỉnh các phần tử con sang bên phải */
+    display: flex; /* Hiển thị các phần tử con theo kiểu flexbox */
+    z-index: 1; /* Độ ưu tiên hiển thị trên các phần tử khác */
+    margin-top: 10px; /* Khoảng cách bên trên của phần menu */
+}
+
+.main-menu li {
+    list-style: none; /* Loại bỏ dấu chấm đầu dòng của danh sách */
+    padding: 0; /* Xóa padding mặc định */
+    font-size: 16px; /* Kích thước phông chữ */
+    position: relative; /* Thiết lập vị trí tương đối để chứa các phần tử con */
+}
+
+.main-menu li a {
+    padding: 10px 10px; /* Khoảng cách giữa các nút trong menu */
+    text-decoration: none; /* Loại bỏ gạch chân ở liên kết */
+    color: white; /* Màu chữ trắng */
+    text-transform: uppercase; /* Chuyển đổi chữ thành in hoa */
+}
+
+.main-menu li a:hover {
+    color: #ea8024; /* Màu chữ khi rê chuột qua (ví dụ: cam) */
+    background: transparent; /* Nền mục menu trở lại trong suốt */
+}
+
+/* Nút trong menu */
+.main-menu li button {
+    background: transparent; /* Nền trong suốt */
+    color: #fff; /* Màu chữ trắng */
+    border: none; /* Loại bỏ đường viền */
+    font-size: 15px; /* Kích thước phông chữ */
+    vertical-align: inherit; /* Căn chỉnh theo chiều dọc */
+    outline: none; /* Loại bỏ đường viền khi tập trung vào nút */
+}
+
+/* Menu con (sub-menu) */
+.main-menu ul.sub-menu {
+    position: absolute; /* Vị trí tuyệt đối */
+    background-color: #555555; /* Màu nền là xám đậm */
+    padding: 0px 0px; /* Khoảng cách bên trong menu con */
+    list-style: none; /* Loại bỏ dấu chấm đầu dòng của danh sách */
+    width: 190px; /* Chiều rộng của menu con */
+    display: none; /* Ẩn menu con ban đầu */
+    border-radius: 10px; /* Bo tròn các góc của menu con */
+}
+
+
+.main-menu li:hover ul.sub-menu {
+    display: block; /* Hiển thị menu con khi rê chuột qua mục cha */
+}
+
+/* Liên kết trong menu con */
+.sub-menu li a:hover {
+    color: #ea8024; /* Màu chữ khi rê chuột qua (ví dụ: cam) */
+    background: transparent; /* Nền mục menu con trở lại trong suốt */
+}
+
+.sub-menu li a {
+    padding: -3px 15px; /* Khoảng cách trong menu con */
+    text-transform: none; /* Không chuyển đổi chữ thành in hoa */
+    color: black; /* Màu chữ đen */
+}
+/* Banner */
+.banner {
+    position: relative; /* Thiết lập vị trí tương đối cho banner */
+    width: 100%; /* Chiều rộng 100% */
+    height: 400px; /* Chiều cao banner là 400px */
+    z-index: 0; /* Độ ưu tiên hiển thị trên các phần tử khác */
+}
+
+/* Slider cho banner */
+.banner-slider {
+    position: relative; /* Thiết lập vị trí tương đối */
+    width: 100%; /* Chiều rộng 100% */
+    height: 400px; /* Chiều cao banner là 400px */
+    overflow: hidden; /* Ẩn phần nội dung vượt quá kích thước */
+}
+
+
+/* Ảnh trong slider */
+.slider-image {
+    position: absolute; /* Vị trí tuyệt đối */
+    width: 100%; /* Chiều rộng 100% */
+    height: 400px; /* Chiều cao banner là 400px */
+    top: 0; /* Vị trí ở đầu trang */
+    left: 0; /* Vị trí ở bên trái */
+    opacity: 0; /* Không hiển thị ảnh ban đầu */
+    transition: opacity 0.5s ease-in-out; /* Hiệu ứng mờ dần 0.5 giây */
+}
+
+/* Ảnh được chọn (active) */
+.slider-image.active {
+    opacity: 1; /* Hiển thị ảnh */
+}
+
+/* Phần card */
+.card .card-body button {
+    display: flex; /* Hiển thị các phần tử con theo kiểu flexbox */
+    justify-content: center; /* Căn chỉnh các phần tử con theo trục ngang ở giữa */
+    align-items: center; /* Căn chỉnh các phần tử con theo trục dọc ở giữa */
+    margin-left: 50px; /* Khoảng cách bên trái */
+}
+
+/* Phần danh sách sản phẩm */
+.group-list {
+    max-width: 100%; /* Giới hạn chiều rộng tối đa cho danh sách sản phẩm */
+}
+
+/* Footer (Chân trang) */
+footer {
+    width: 100%; /* Chiều rộng 100% */
+    background-color: #f8f9fa; /* Màu nền xám nhạt */
+    padding: 20px 0; /* Khoảng cách trong phần chân trang */
+}
+
+/* Tiêu đề danh sách sản phẩm */
+.title-list {
+    display: flex; /* Hiển thị các phần tử con theo kiểu flexbox */
+    justify-content: center; /* Căn chỉnh các phần tử con theo trục ngang ở giữa */
+    align-items: center; /* Căn chỉnh các phần tử con theo trục dọc ở giữa */
+    padding: 10px 10px; /* Khoảng cách xung quanh tiêu đề */
+    font-size: 30px; /* Kích thước phông chữ 30px */
+    padding: 30px; /* Khoảng cách xung quanh tiêu đề */
+}
+
+.title-list h2 {
+    margin-left: 20px; /* Khoảng cách bên trái */
+    border-bottom: 1px solid black; /* Đường viền dưới tiêu đề */
+}
+
+/* Phần danh sách sản phẩm */
+.group-list {
+    max-width: 1180px; /* Giới hạn chiều rộng tối đa cho danh sách sản phẩm */
+    margin: 0 auto; /* Canh chỉnh giữa (trục ngang) trên màn hình */
+}
+
+/* Card (sản phẩm) */
+.card-list {
+    display: grid; /* Hiển thị các phần tử con trong lưới */
+    grid-template-columns: repeat(4, 1fr); /* Chia thành 4 cột với chiều rộng bằng nhau */
+    grid-template-rows: repeat(2, auto); /* Chia thành 2 dòng */
+    grid-gap: 20px; /* Khoảng cách giữa các card */
+    justify-items: center; /* Căn chỉnh các phần tử con ở giữa */
+}
+
+.card {
+    width: 100%; /* Chiều rộng 100% */
+}
+
+.card:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; /* Hiệu ứng bóng đổ */
+}
+
+.card-body a {
+    display: flex; /* Hiển thị các phần tử con theo kiểu flexbox */
+    align-items: center; /* Căn chỉnh các phần tử con theo trục dọc ở giữa */
+    justify-content: center; /* Căn chỉnh các phần tử con theo trục ngang ở giữa */
+    background-color: #333333; /* Màu nền đen cho nút mua ngay */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Phóng to ảnh lên 1.05 lần khi rê chuột qua */
+    transition: transform 0.3s ease; /* Hiệu ứng chuyển động 0.3 giây */
+}
+
+.card-text {
+    color: red; /* Màu chữ đỏ */
+    font-size: 20px; /* Kích thước phông chữ 20px */
+}
+
+footer {
+    margin-top: 20px; /* Khoảng cách bên trên chân trang */
+}
+
+/* Phần giới thiệu */
+.introduce {
+    max-width: 1000px; /* Giới hạn chiều rộng tối đa cho phần giới thiệu */
+    margin: 0 auto; /* Canh chỉnh giữa (trục ngang) trên màn hình */
+    margin-top: 90px; /* Khoảng cách bên trên phần giới thiệu */
+}
+    /* Header Navigate (Thanh điều hướng trang) */
+.header-navigate {
+    background: #F8F8F8; /* Màu nền xám nhạt */
+    height: 20px; /* Chiều cao 20px */
+}
+
+.header-navigate ul {
+    display: flex; /* Hiển thị các phần tử con theo kiểu flexbox */
+    list-style: none; /* Loại bỏ dấu chấm trước danh sách */
+    padding: 0px 5px; /* Khoảng cách trong danh sách */
+}
+
+.header-navigate ul li {
+    padding: 0 5px; /* Khoảng cách bên trong mỗi phần tử danh sách */
+}
+
+.header-navigate ul li a {
+    color: black; /* Màu chữ đen */
+    text-decoration: none; /* Loại bỏ gạch chân cho liên kết */
+}
+
+/* Phần chi tiết */
+.row p {
+    font-size: 20px; /* Kích thước phông chữ 20px */
+}
+
+.photo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* Sản phẩm (Product) */
+.bannerSP img {
+    position: relative; /* Thiết lập vị trí tương đối */
+    width: 100%; /* Chiều rộng 100% */
+    height: 350px; /* Chiều cao sản phẩm là 350px */
+    z-index: 0; /* Độ ưu tiên hiển thị trên các phần tử khác */
+}
+
+/* Phần nội dung (Content) */
+.body-container {
+    max-width: 1180px; /* Giới hạn chiều rộng tối đa */
+    margin: 0 auto; /* Canh chỉnh giữa (trục ngang) trên màn hình */
+}
+
+.link a {
+    text-decoration: none; /* Loại bỏ gạch chân cho liên kết */
+    color: #3E3E3E; /* Màu chữ xám */
+}
+
+/* Box tiêu đề sản phẩm */
+.box-title {
+    display: flex; /* Hiển thị các phần tử con theo kiểu flexbox */
+    padding: 3px 0px; /* Khoảng cách xung quanh tiêu đề */
+    border: 1px solid #efefef; /* Đường viền bao quanh tiêu đề */
+    width: 100%; /* Chiều rộng 100% */
+    background-color: #f3f3f3; /* Màu nền xám nhạt */
+}
+
+/* Bảng (Table) */
+.table {
+    display: block; /* Hiển thị theo kiểu khối */
+}
+
+.box-title h2 {
+    font-size: 20px; /* Kích thước phông chữ 20px */
+    color: #161616; /* Màu chữ đen */
+    text-transform: uppercase; /* Chuyển đổi chữ thành chữ in hoa */
+    padding: 10px 5px 0 10px; /* Khoảng cách xung quanh tiêu đề */
+    margin: 0 0 10px; /* Khoảng cách bên dưới tiêu đề */
+    display: inline-block; /* Hiển thị theo kiểu inline-block */
+}
+
+.box-title p {
+    margin: 0; /* Loại bỏ khoảng cách bên ngoài phần tử */
+    display: flex; /* Hiển thị các phần tử con theo kiểu flexbox */
+    justify-content: center; /* Căn chỉnh các phần tử con theo trục ngang ở giữa */
+    align-items: center; /* Căn chỉnh các phần tử con theo trục dọc ở giữa */
+    margin-left: 10px; /* Khoảng cách bên trái */
+    vertical-align: middle; /* Căn chỉnh theo trục dọc giữa các phần tử */
+    font-size: 12px; /* Kích thước phông chữ 12px */
+    color: #888; /* Màu chữ xám đậm */
+}
+
+/* Phần chính (Main Content) */
+.main-container {
+    display: flex; /* Hiển thị các phần tử con theo kiểu flexbox */
+    margin-top: 20px; /* Khoảng cách bên trên phần chính */
+}
+.item {
+    display: block;
+    margin-right: -20px; /* Tạo khoảng cách âm bên phải để loại bỏ khoảng trống */
+}
+
+.filter-desktop h3 {
+    max-width: 260px;
+    background: #333333; /* Màu nền đen */
+    color: #fff; /* Màu chữ trắng */
+    text-align: center; /* Căn chỉnh chữ giữa theo chiều ngang */
+    padding: 10px 0px; /* Khoảng cách bên trong tiêu đề */
+    text-transform: uppercase; /* Chuyển đổi chữ thành chữ in hoa */
+    font-size: 15px; /* Kích thước phông chữ 15px */
+}
+
+.filter-box {
+    max-width: 260px; /* Chiều rộng tối đa */
+    margin-top: 5px; /* Khoảng cách bên trên */
+    background: #f3f3f3; /* Màu nền xám nhạt */
+    border: 1px solid #efefef; /* Đường viền bao quanh */
+    padding: 0px 10px 5px; /* Khoảng cách bên trong hộp */
+}
+
+.from-1 li {
+    list-style: none; /* Loại bỏ dấu chấm trước danh sách */
+}
+
+.from-1 li a {
+    text-decoration: none; /* Loại bỏ gạch chân cho liên kết */
+    color: #333333; /* Màu chữ xám đậm */
+    font-size: 16px; /* Kích thước phông chữ 16px */
+}
+
+.from_ {
+    margin-top: 10px; /* Khoảng cách bên trên */
+}
+
+.search-box {
+    display: flex; /* Hiển thị các phần tử con theo kiểu flexbox */
+}
+
+.search-box input[type="text"] {
+    border-radius: 5px; /* Bo tròn góc */
+    outline: none; /* Loại bỏ đường viền khi focus */
+    border: none; /* Loại bỏ đường viền */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Đổ bóng vùng input */
+}
+
+.search-box button[type=button] {
+    background-color: black; /* Màu nền đen */
+}
+
+.filter-box h3 {
+    text-transform: inherit; /* Khôi phục chữ thường */
+    font-size: 14px; /* Kích thước phông chữ 14px */
+    font-weight: bold; /* Độ đậm của chữ */
+    padding: 5px 0px; /* Khoảng cách bên trong tiêu đề */
+    border-bottom: 1px dotted #CBCBCB; /* Đường viền dưới chữ */
+}
+
+.filter-box ul {
+    margin-left: -30px; /* Tạo khoảng cách âm bên trái */
+}
+
+.filter-box ul li {
+    font-size: 15px; /* Kích thước phông chữ 15px */
+}
+
+.view-more {
+    display: flex; /* Hiển thị các phần tử con theo kiểu flexbox */
+    justify-content: center; /* Căn chỉnh các phần tử con theo trục ngang ở giữa */
+    align-items: center; /* Căn chỉnh các phần tử con theo trục dọc ở giữa */
+}
+
+.view-more button {
+    box-shadow: #161616; /* Đổ bóng */
+    width: 200px; /* Chiều rộng 200px */
+    height: 50px; /* Chiều cao 50px */
+    background-color: #333333; /* Màu nền đen */
+    color: white; /* Màu chữ trắng */
+}
+
+/* Liên hệ (Contact) */
+.body-body {
+    margin-top: 70px; /* Khoảng cách bên trên */
+}
+
+.map {
+    display: flex; /* Hiển thị các phần tử con theo kiểu flexbox */
+    justify-content: center; /* Căn chỉnh các phần tử con theo trục ngang ở giữa */
+    align-items: center; /* Căn chỉnh các phần tử con theo trục dọc ở giữa */
+}
+
+.map iframe {
+    width: 100%; /* Chiều rộng 100% */
+    height: 500px; /* Chiều cao 500px */
+}
+
+.body-body h1 {
+    position: relative; /* Thiết lập vị trí tương đối */
+    margin: 0; /* Loại bỏ khoảng cách bên ngoài */
+    padding: 0; /* Loại bỏ khoảng cách bên trong */
+    font-size: 20px; /* Kích thước phông chữ 20px */
+    line-height: 20px; /* Chiều cao dòng 20px */
+    text-transform: uppercase; /* Chuyển đổi chữ thành chữ in hoa */
+    color: #161616; /* Màu chữ đen */
+    display: table; /* Hiển thị theo kiểu bảng */
+    margin-bottom: 10px; /* Khoảng cách bên dưới */
+}
+
+.form {
+    display: flex; /* Hiển thị các phần tử con theo kiểu flexbox */
+    max-width: 1000px; /* Chiều rộng tối đa 1000px */
+    margin-top: 20px; /* Khoảng cách bên trên */
+}
+
+.group input {
+    margin-bottom: 20px; /* Khoảng cách bên dưới */
+}
+
+.input-group {
+    display: flex; /* Hiển thị các phần tử con theo kiểu flexbox */
+}
+
+.clearfix button {
+    background-color: #333333; /* Màu nền đen */
+    color: white; /* Màu chữ trắng */
+    width: 130px; /* Chiều rộng 130px */
+    height: 50px; /* Chiều cao 50px */
+}
+
+.clearfix-tile {
+    margin-left: 20px; /* Khoảng cách bên trái */
+}
+
+.page-left-title,
+.layout-page .page-right-title {
+    width: 100%; /* Chiều rộng 100% */
+    float: left; /* Tạo float bên trái */
+    position: relative; /* Thiết lập vị trí tương đối */
+    font-size: 14px; /* Kích thước phông chữ 14px */
+    line-height: 14px; /* Chiều cao dòng 14px */
+    margin: 5px 0 15px; /* Khoảng cách trên dưới và bên trái phần tử */
+    overflow: hidden; /* Loại bỏ nội dung dư thừa */
+    padding-bottom: 5px; /* Khoảng cách bên dưới */
+    border-bottom: 1px dotted #ddd; /* Đường viền dưới */
+}
+
+.right-title {
+    width: 100%; /* Chiều rộng 100% */
+    float: left; /* Tạo float bên trái */
+    position: relative; /* Thiết lập vị trí tương đối */
+    font-size: 14px; /* Kích thước phông chữ 14px */
+    line-height: 14px; /* Chiều cao dòng 14px */
+    margin: 5px 0 15px; /* Khoảng cách trên dưới và bên trái phần tử */
+    overflow: hidden; /* Loại bỏ nội dung dư thừa */
+    padding-bottom: 5px; /* Khoảng cách bên dưới */
+    border-bottom: 1px dotted #ddd; /* Đường viền dưới */
+}
+
+.phone {
+    width: 100%; /* Chiều rộng 100% */
+    float: left; /* Tạo float bên trái */
+    position: relative; /* Thiết lập vị trí tương đối */
+    font-size: 14px; /* Kích thước phông chữ 14px */
+    line-height: 14px; /* Chiều cao dòng 14px */
+    margin: 5px 0; /* Khoảng cách trên dưới */
+    overflow: hidden; /* Loại bỏ nội dung dư thừa */
+    padding-bottom: 5px; /* Khoảng cách bên dưới */
+    display: table; /* Hiển thị theo kiểu bảng */
+}
+
+.text-indent-page {
+    text-indent: 40px; /* Thụt vào 40px bên trái */
+    float: left; /* Tạo float bên trái */
+    width: 100%; /* Chiều rộng 100% */
+}
+
+.address {
+    width: 100%; /* Chiều rộng 100% */
+    position: relative; /* Thiết lập vị trí tương đối */
+    font-size: 14px; /* Kích thước phông chữ 14px */
+    line-height: 14px; /* Chiều cao dòng 14px */
+    margin: 5px 0; /* Khoảng cách trên dưới */
+    overflow: hidden; /* Loại bỏ nội dung dư thừa */
+    padding-bottom: 5px; /* Khoảng cách bên dưới */
+}
+
+.clearfix i {
+    margin-right: 10px; /* Khoảng cách bên phải */
+}
+
+.clearfix-tile i {
+    margin-right: 10px; /* Khoảng cách bên phải */
+}
+
+/* Giỏ hàng (Shopping Cart) */
+:root {
+    --main-color: #fd4646; /* Màu chính */
+    --text-color: #171427; /* Màu chữ */
+    --bg-color: #fff; /* Màu nền */
+}
+
+.cart-1 {
+    position: fixed; /* Vị trí cố định */
+    top: 0;
+    right: 0;
+    width: 360px; /* Chiều rộng 360px */
+    min-height: 100vh; /* Chiều cao tối thiểu 100% chiều cao của viewport */
+    padding: 20px; /* Khoảng cách bên trong */
+    background: var(--bg-color); /* Màu nền */
+    box-shadow: -2px 0 4px hsl(0 4% 15% / 10%); /* Đổ bóng */
+    transition: 0.3s; /* Hiệu ứng chuyển động 0.3 giây */
+    display: none; /* Ẩn đi ban đầu */
+}
+
+.cart-1.active {
+    right: 0;
+    display: block; /* Hiển thị khi có class active */
+}
+
+.cart-title {
+    text-align: center; /* Căn chỉnh chữ giữa theo chiều ngang */
+    font-size: 1.5rem; /* Kích thước phông chữ 1.5rem */
+    font-weight: 600; /* Độ đậm của chữ */
+    margin-top: 60px; /* Khoảng cách bên trên */
+}
+
+.thong-tin {
+    margin-top: -15px; /* Khoảng cách bên trên */
+}
+
+.cart-box {
+    display: grid; /* Hiển thị theo kiểu grid */
+    grid-template-columns: 32% 50% 18%; /* Chia thành 3 cột */
+    align-items: center; /* Căn chỉnh theo trục dọc giữa các phần tử con */
+    gap: 1rem; /* Khoảng cách giữa các phần tử */
+    margin-top: 1rem; /* Khoảng cách bên trên */
+}
+
+.cart-img {
+    width: 100px; /* Chiều rộng 100px */
+    height: 100px; /* Chiều cao 100px */
+    object-fit: contain; /* Hiển thị toàn bộ hình ảnh trong khung */
+    padding: 10px; /* Khoảng cách bên trong */
+}
+
+.detail-box {
+    display: grid; /* Hiển thị theo kiểu grid */
+    row-gap: 0.5rem; /* Khoảng cách giữa các hàng */
+}
+
+.cart-product-title {
+    font-size: 1rem; /* Kích thước phông chữ 1rem */
+    text-transform: uppercase; /* Chuyển đổi chữ thành chữ in hoa */
+}
+
+.cart-price {
+    font-weight: 500; /* Độ đậm của chữ */
+}
+
+.cart-quantity {
+    border: 1px solid var(--text-color); /* Đường viền */
+    outline-color: var(--main-color); /* Màu khi focus */
+    width: 2.4rem; /* Chiều rộng 2.4rem */
+    text-align: center; /* Căn chỉnh chữ giữa theo chiều ngang */
+    font-size: 1rem; /* Kích thước phông chữ 1rem */
+}
+
+.cart-remove {
+    font-size: 24px; /* Kích thước phông chữ 24px */
+    color: var(--main-color); /* Màu chữ chính */
+    cursor: pointer; /* Con trỏ chuột thành hình bàn tay */
+}
+
+.total {
+    display: flex; /* Hiển thị các phần tử con theo kiểu flexbox */
+    justify-content: flex-end; /* Căn chỉnh các phần tử con theo trục ngang ở cuối */
+    margin-top: 1.5rem; /* Khoảng cách bên trên */
+    border-top: 1px solid var(--text-color); /* Đường viền phía trên */
+}
+
+.total-title {
+    font-size: 1rem; /* Kích thước phông chữ 1rem */
+    font-weight: 600; /* Độ đậm của chữ */
+}
+
+.total-price {
+    margin-left: 0.5rem; /* Khoảng cách bên trái */
+}
+
+.btn-buy {
+    display: flex; /* Hiển thị các phần tử con theo kiểu flexbox */
+    margin: 0.5rem auto 0 auto; /* Khoảng cách */
+    padding: 12px 20px; /* Khoảng cách bên trong */
+    border: none; /* Loại bỏ đường viền */
+    background: var(--main-color); /* Màu nền chính */
+    color: var(--bg-color); /* Màu chữ */
+    font-size: 1rm; /* Kích thước phông chữ 1rm (Có lẽ bạn muốn sửa thành 1rem) */
+    font-weight: 500; /* Độ đậm của chữ */
+    cursor: pointer; /* Con trỏ chuột thành hình bàn tay */
+}
+
+.btn-buy:hover {
+    background: var(--text-color); /* Màu nền chuyển khi hover */
+}
+
+#close-cart {
+    position: absolute; /* Thiết lập vị trí tuyệt đối */
+    top: 1rem; /* Khoảng cách bên trên */
+    right: 0.8rem; /* Khoảng cách bên phải */
+    font-size: 2rem; /* Kích thước phông chữ 2rem */
+    color: var(--text-color); /* Màu chữ */
+    cursor: pointer; /* Con trỏ chuột thành hình bàn tay */
+}
+
+.cart-content {
+    height: 280px; /* Đặt chiều cao cố định cho giỏ hàng */
+    overflow-y: auto; /* Hiển thị thanh cuộn dọc khi nội dung vượt quá chiều cao */
+}
+.login-register {
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+  }
+
+  .login-register a {
+    color: white;
+    text-decoration: none;
+    margin-right: 10px;
+  }
+
